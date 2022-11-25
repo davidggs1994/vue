@@ -13,9 +13,22 @@
         const vm = Vue.createApp({
             data() {
                 return{
+                    text: "Hola Vue"
                 };
             },
-            template: ``
+            methods: {
+                input(e){
+                    this.text = e.target.value;
+                }
+            },
+            template: `
+            <p>{{ text }}</p>
+            <input 
+                type="text" 
+                v-on:input="input"
+                v-bind:value="text"
+            />
+            `
         }).mount("#app");
     </script>
 </body>
